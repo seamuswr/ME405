@@ -8,7 +8,7 @@ import cqueue
 import pyb
 
 def timer_int(dummy):
-    """! Doxygenstyle dostring for interrupt callback function
+    """! better Doxygenstyle dostring for interrupt callback function
 """
     volt_queue.put(adc0.read())
 
