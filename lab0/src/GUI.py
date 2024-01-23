@@ -37,6 +37,7 @@ def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
     plot_axes.plot(time_data, voltage_theory)
     plot_axes.set_xlabel(xlabel)
     plot_axes.set_ylabel(ylabel)
+    plot_axes.legend("ET")
     plot_axes.grid(True)
     plot_canvas.draw()
 
@@ -85,12 +86,3 @@ if __name__ == "__main__":
                xlabel="Time (ms)",
                ylabel="Voltage (V)",
                title="Step Response")
-
-
-"""! TO DO:
-1. Modify homework 0 to take in serial data and end at 'End'
-2. Incorporate GUI from example code
-3. Add second curve to plot
-4. Clean up github/file organization
-5. Write README
-"""
