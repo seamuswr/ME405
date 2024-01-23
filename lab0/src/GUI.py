@@ -1,14 +1,9 @@
 import math
 import tkinter
-from random import random
 from serial import Serial
 from matplotlib.figure import Figure
 from matplotlib import pyplot
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
-import time
-
-time_data = []
-height_data = []
 
 
 def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
@@ -24,6 +19,8 @@ def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
     # Here we create some fake data. It is put into an X-axis list (times) and
     # a Y-axis list (boing). Real test data will be read through the USB-serial
     # port and processed to make two lists like these
+    time_data = []
+    height_data = []
     ser = Serial('/dev/tty.usbmodem204F377739472', timeout=10)
     # Seamus's serial /dev/tty.usbmodem204F377739472
     ser.write(b'\x02')
@@ -44,7 +41,7 @@ def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
     voltage_theory = [3.3*(1 - math.exp((-1)*t/330)) for t in time_data]
 
     # Draw the plot. Of course, the axes must be labeled. A grid is optional
-    plot_axes.plot(time_data, height_data, linestyle='--')
+    plot_axes.plot(time_data, height_data, linestyle='dotted')
     plot_axes.plot(time_data, voltage_theory)
     plot_axes.set_xlabel(xlabel)
     plot_axes.set_ylabel(ylabel)
@@ -106,10 +103,6 @@ if __name__ == "__main__":
                ylabel="Voltage (V)",
                title="Step Response")
 
-    #pyplot.plot(time_data[1:], height_data[1:])
-    #pyplot.xlabel(time_data[0])
-    #pyplot.ylabel(height_data[0])
-    #pyplot.show()
 
 """! TO DO:
 1. Modify homework 0 to take in serial data and end at 'End'
