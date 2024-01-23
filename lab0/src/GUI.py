@@ -25,6 +25,7 @@ def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
     # a Y-axis list (boing). Real test data will be read through the USB-serial
     # port and processed to make two lists like these
     ser = Serial('/dev/tty.usbmodem204F377739472', timeout=10)
+    # Seamus's serial /dev/tty.usbmodem204F377739472
     ser.write(b'\x02')
     ser.write(b'\x04')
     line = ser.readline().decode('utf-8').rstrip().split(",", 1)
