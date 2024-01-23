@@ -44,7 +44,7 @@ def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
     voltage_theory = [3.3*(1 - math.exp((-1)*t/330)) for t in time_data]
 
     # Draw the plot. Of course, the axes must be labeled. A grid is optional
-    plot_axes.plot(time_data, height_data)
+    plot_axes.plot(time_data, height_data, linestyle='--')
     plot_axes.plot(time_data, voltage_theory)
     plot_axes.set_xlabel(xlabel)
     plot_axes.set_ylabel(ylabel)
