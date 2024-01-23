@@ -5,19 +5,9 @@ from matplotlib.figure import Figure
 from matplotlib import pyplot
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
 
-
+# This function define both plots (Theorectical and Experimental). We also used the readline() method as well as utilizing strip and split similar to the HW1.
 def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
-    """!
-    Make an example plot to show a simple(ish) way to embed a plot into a GUI.
-    The data is just a nonsense simulation of a diving board from which a
-    typically energetic otter has just jumped.
-    @param plot_axes The plot axes supplied by Matplotlib
-    @param plot_canvas The plot canvas, also supplied by Matplotlib
-    @param xlabel The label for the plot's horizontal axis
-    @param ylabel The label for the plot's vertical axis
-    """
-    # Here we create some fake data. It is put into an X-axis list (times) and
-    # a Y-axis list (boing). Real test data will be read through the USB-serial
+    # Real test data will be read through the USB-serial
     # port and processed to make two lists like these
     time_data = []
     height_data = []
@@ -37,7 +27,7 @@ def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
             height_data.append(float(line[1]))
         finally:
             line = ser.readline().decode('utf-8').rstrip().split(",", 1)
-
+# Calculation of Voltage
     voltage_theory = [3.3*(1 - math.exp((-1)*t/330)) for t in time_data]
 
     # Draw the plot. Of course, the axes must be labeled. A grid is optional
@@ -48,19 +38,9 @@ def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
     plot_axes.grid(True)
     plot_canvas.draw()
 
-
+# This function is for the GUI program.
 def tk_matplot(plot_function, xlabel, ylabel, title):
-    """!
-    Create a TK window with one embedded Matplotlib plot.
-    This function makes the window, displays it, and runs the user interface
-    until the user closes the window. The plot function, which must have been
-    supplied by the user, should draw the plot on the supplied plot axes and
-    call the draw() function belonging to the plot canvas to show the plot.
-    @param plot_function The function which, when run, creates a plot
-    @param xlabel The label for the plot's horizontal axis
-    @param ylabel The label for the plot's vertical axis
-    @param title A title for the plot; it shows up in window title bar
-    """
+    
     # Create the main program window and give it a title
     tk_root = tkinter.Tk()
     tk_root.wm_title(title)
@@ -96,7 +76,7 @@ def tk_matplot(plot_function, xlabel, ylabel, title):
     # This function runs the program until the user decides to quit
     tkinter.mainloop()
 
-
+# main
 if __name__ == "__main__":
     tk_matplot(plot_example,
                xlabel="Time (ms)",
