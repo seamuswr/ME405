@@ -5,8 +5,10 @@ from matplotlib.figure import Figure
 from matplotlib import pyplot
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
 
-# This function define both plots (Theorectical and Experimental). We also used the readline() method as well as utilizing strip and split similar to the HW1.
+
 def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
+    # This function define both plots (Theoretical and Experimental).
+    # We also used the readline() method as well as utilizing strip and split similar to the HW1.
     # Real test data will be read through the USB-serial
     # port and processed to make two lists like these
     time_data = []
@@ -38,9 +40,9 @@ def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
     plot_axes.grid(True)
     plot_canvas.draw()
 
-# This function is for the GUI program.
+
 def tk_matplot(plot_function, xlabel, ylabel, title):
-    
+    # This function is for the GUI program.
     # Create the main program window and give it a title
     tk_root = tkinter.Tk()
     tk_root.wm_title(title)
@@ -76,8 +78,9 @@ def tk_matplot(plot_function, xlabel, ylabel, title):
     # This function runs the program until the user decides to quit
     tkinter.mainloop()
 
-# main
+
 if __name__ == "__main__":
+    # main
     tk_matplot(plot_example,
                xlabel="Time (ms)",
                ylabel="Voltage (V)",
