@@ -1,6 +1,12 @@
 """! @file step_response.py
 Doxygen Style Doctring for the file
 """
+import math
+import tkinter
+from random import random
+from serial import Serial
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
 import time
 import micropython
 micropython.alloc_emergency_exception_buf(100)
