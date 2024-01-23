@@ -12,3 +12,10 @@ if __name__ == "__main__":
     ser.write(b'\x04')
     print(ser.readlines())
 
+"""! TO DO:
+1. Modify homework 0 to take in serial data and end at 'End'
+2. Incorporate GUI from example code
+3. Add second curve to plot
+4. Clean up github/file organization
+5. Write README
+"""
