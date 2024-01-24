@@ -11,10 +11,15 @@ from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationTool
 
 
 def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
-    """! This function define both plots (Theoretical and Experimental).
-    We also used the readline() method as well as utilizing strip and split similar to the HW1.
-    Data is read through the serial port, cleaned up, and plotted
+    """! This function defines both plots (Theoretical and Experimental).
+    It reads data through the serial port, cleans it up, and plots the step response.
+
+    @param plot_axes: The axes on which the plots will be drawn.
+    @param plot_canvas: The canvas on which the plots will be displayed.
+    @param xlabel: The label for the x-axis.
+    @param ylabel: The label for the y-axis.
     """
+
     time_data = []
     height_data = []
     ser = Serial('/dev/tty.usbmodem204F377739472', timeout=10)
@@ -48,6 +53,11 @@ def plot_example(plot_axes, plot_canvas, xlabel, ylabel):
 
 def tk_matplot(plot_function, xlabel, ylabel, title):
     """! This function is for the GUI program.
+
+    @param plot_function: The function responsible for plotting the data.
+    @param xlabel: The label for the x-axis.
+    @param ylabel: The label for the y-axis.
+    @param title: The title of the GUI window.
     """
 
     tk_root = tkinter.Tk()
